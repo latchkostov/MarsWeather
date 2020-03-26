@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mars Weather</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap" rel="stylesheet">
+    <script src="./scripts/index.js" defer></script>
+</head>
+<body>
+    <main class="mars-current-weather">
+        <h1 class="main-title">LATEST WEATHER AT ELYSIUM PLANTITIA</h1>
+        <div class="date">
+            <h2 class="section-title section-title--date">Sol 377</h2>
+            <p class="date__day">September 18</p>
+        </div>
+        <div class="temp">
+            <h2 class="section-title">Temperature</h2>
+            <p class="reading">High: -20°C</p>
+            <p class="reading">Low: -98°C</p>
+        </div>
+        <div class="wind">
+            <h2 class="section-title">Wind</h2>
+            <p class="reading">75 kph</p>
+            <div class="wind__direction">
+                <p class="sr-only">45deg</p>
+                <div class="wind__arrow"></div>
+            </div>
+        </div>
+
+        <div class="info">
+            <p>
+                InSight is taking daily weather measurements (temperature, wind, pressure)
+                on the surface of Mars at Elysium Planitia, a flat, smooth plain near Mars' equator.
+            </p>
+            <p>
+                This is only part of InSight's mission. 
+                <a href="https://mars.nasa.gov/insight/mission/overview/">Find out more about InSight.</a>
+            </p>
+        </div>
+
+        <div class="unit">
+            <label for="cel">°C</label>
+            <input type="radio" name="unit" id="cel" checked>
+            <button class="unit__toggle">
+                Toggle
+            </button>
+            <label for="fah">°F</label>
+            <input type="radio" name="unit" id="fah">
+        </div>
+    </main>
+    <div class="previous-weather">
+        <label for="weather-toggle" class="show-previous-weather-label">
+            &#8593; <span class="sr-only">Show previous weather</span>
+        </label>
+        <input type="checkbox" name="weather-toggle" id="show-previous-weather-toggle">
+        <h2 class="main-title">Previous 7 days</h2>
+        <div class="previous-days">
+            <div class="previous-day">
+                <h3 class="previous_day__sol">Sol 371</h3>
+                <p class="previous-day__date">September 31st</p>
+                <p class="previous-day__temp">High: -20°C</p>
+                <p class="previous-day__temp">Low: -98°C</p>
+                <button class="previous-day__more-info">more info</button>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

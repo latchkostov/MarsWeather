@@ -1,0 +1,85 @@
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: orange;
+}
+
+.section-title {
+  color: #fff;
+  font-weight: 600;
+  font-size: 32px;
+}
+
+.mars-current-weather {
+  display: -ms-grid;
+  display: grid;
+  position: absolute;
+  top: 120px;
+  left: 100px;
+  width: 1200px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 48px 96px;
+  -ms-grid-columns: (33.3%)[3];
+      grid-template-columns: repeat(3, 33.3%);
+  -ms-grid-rows: (auto-fit)[3];
+      grid-template-rows: repeat(3, auto-fit);
+  grid-row-gap: 30px;
+}
+
+.mars-current-weather .main-title {
+  grid-column: span 3;
+}
+
+.mars-current-weather .date {
+  font-size: 22px;
+}
+
+.mars-current-weather .temp {
+  font-size: 18px;
+}
+
+.mars-current-weather .wind {
+  font-size: 20px;
+  color: #fff;
+}
+
+.mars-current-weather .info {
+  grid-column: span 2;
+}
+
+.mars-current-weather .info p:first-child {
+  margin-bottom: 16px;
+}
+
+.mars-current-weather .unit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -ms-grid-column: 3;
+  grid-column: 3 / 3;
+}
+
+.mars-current-weather .section-title--date {
+  font-size: 48px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+/*# sourceMappingURL=main.css.map */
