@@ -18,21 +18,23 @@
             </h2>
             <p class="date__day" data-current-date></p>
         </div>
+        <div class="divider divider-one"></div>
         <div class="temp">
             <div>
                 <h2 class="section-title">Temperature</h2>
                 <p class="reading">
                     High:
                     <span data-current-temp-high></span>
-                    °C
+                    °<span data-temp-unit></span>
                 </p>
                 <p class="reading">
                     Low:
                     <span data-current-temp-low></span>
-                    °C
+                    °<span data-temp-unit></span>
                 </p>
             </div>
         </div>
+        <div class="divider divider-two"></div>
         <div class="wind">
             <div class="wind__title_and_reading">
                 <h2 class="section-title">Wind</h2>
@@ -61,9 +63,7 @@
         <div class="unit">
             <label for="cel">°C</label>
             <input type="radio" name="unit" id="cel" checked>
-            <button class="unit__toggle">
-                Toggle
-            </button>
+            <button class="unit__toggle" data-unit-toggle></button>
             <label for="fah">°F</label>
             <input type="radio" name="unit" id="fah">
         </div>
