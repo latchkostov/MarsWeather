@@ -55,10 +55,10 @@ a:hover {
 .mars-current-weather {
   display: -ms-grid;
   display: grid;
-  margin: 4rem 0 0 4rem;
+  margin: 6rem 0 0 4rem;
   max-width: 1000px;
   background-color: rgba(0, 0, 0, 0.7);
-  padding: 2rem;
+  padding: 4rem;
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
   grid-gap: 2em;
