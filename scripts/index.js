@@ -13,6 +13,7 @@ const toggleUnitsButton = document.querySelector('[data-unit-toggle]');
 const metricUnitRadio = document.getElementById('cel');
 const imperialUnitRadio = document.getElementById('fah');
 const temperatureUnits = document.querySelectorAll('[data-temp-unit]');
+const speedUnits = document.querySelectorAll('[data-speed-unit]');
 
 let selectedSolIndex;
 
@@ -68,7 +69,8 @@ function displayTemperature(temperature) {
 }
 
 function displaySpeed(speed) {
-    return Math.round(speed);
+    const isMetric = metricUnitRadio.checked;
+    return isMetric ? Math.round(speed) : Math.round(speed / 1.609);
 }
 
 function getWeather() {
@@ -96,11 +98,11 @@ function getWeather() {
 }
 
 function updateUnits(isMetric) {
+    for (speedUnit of speedUnits) {
+        speedUnit.innerText = isMetric ? 'kph' : 'mph';
+    }
+    
     for (tempUnit of temperatureUnits) {
-        if (isMetric) {
-            tempUnit.innerText = 'C';
-        } else {
-            tempUnit.innerText = 'F';
-        }
+        tempUnit.innerText = isMetric ? 'C' : 'F';
     }
 }
