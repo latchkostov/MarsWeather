@@ -33,13 +33,15 @@ body {
     font-weight: var(--fw-bold);
     font-size: var(--fs-h2);
     margin: 0;
+
+    &--date {
+        font-size: var(--fs-xl);
+    }
 }
 
 h1, h2, h3 { line-height: 1; }
-
 a {
     color: var(--clr-accent);
-
     &:hover {
         color: var(--clr-accent-dark);
     }
@@ -71,6 +73,14 @@ a {
             margin: 0;
             font-weight: var(--fw-light);
         }
+    }
+
+    .temp {
+        grid-column: 2 / 3;
+        --border: solid .25em var(--clr-accent-dark);
+        border-left: var(--border);
+        border-right: var(--border);
+        padding: 0 2em;
     }
 
     .wind {
@@ -121,20 +131,6 @@ a {
         justify-content: flex-end;
         grid-column: 3 / 4;
     }
-
-    .section-title {
-        &--date {
-            font-size: var(--fs-xl);
-        }
-    }
-}
-
-.temp {
-    grid-column: 2 / 3;
-    --border: solid .25em var(--clr-accent-dark);
-    border-left: var(--border);
-    border-right: var(--border);
-    padding: 0 2em;
 }
 
 .reading {

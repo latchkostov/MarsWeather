@@ -36,6 +36,10 @@ body {
   margin: 0;
 }
 
+.section-title--date {
+  font-size: var(--fs-xl);
+}
+
 h1, h2, h3 {
   line-height: 1;
 }
@@ -80,6 +84,16 @@ a:hover {
   color: var(--clr-gray);
   margin: 0;
   font-weight: var(--fw-light);
+}
+
+.mars-current-weather .temp {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+  --border: solid .25em var(--clr-accent-dark);
+  border-left: var(--border);
+  border-right: var(--border);
+  padding: 0 2em;
 }
 
 .mars-current-weather .wind {
@@ -156,20 +170,6 @@ a:hover {
   -ms-grid-column: 3;
   -ms-grid-column-span: 1;
   grid-column: 3 / 4;
-}
-
-.mars-current-weather .section-title--date {
-  font-size: var(--fs-xl);
-}
-
-.temp {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
-  grid-column: 2 / 3;
-  --border: solid .25em var(--clr-accent-dark);
-  border-left: var(--border);
-  border-right: var(--border);
-  padding: 0 2em;
 }
 
 .reading {
