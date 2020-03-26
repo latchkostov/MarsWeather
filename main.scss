@@ -3,6 +3,7 @@
 }
 
 :root {
+    font-size: 10px;
     --fw-light: 300;
     --fw-normal: 400;
     --fw-semi: 500;
@@ -26,7 +27,6 @@ body {
     height: 100vh;
     overflow: hidden;
     color: var(--clr-light);
-    font-size: 10px;
 }
 
 .section-title {
@@ -75,6 +75,34 @@ a {
 
     .wind {
         grid-column: 3 / 4;
+        display: flex;
+        align-items: center;
+
+        &__direction {
+            --size: 6rem;
+            width: var(--size);
+            height: var(--size);
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__title_and_reading {
+            padding-left: 1rem;
+        }
+
+        &__arrow {
+            --size: 1rem;
+            --direction: 45deg;
+            height: calc(var(--size) * 3);
+            width: var(--size);
+            background-color: var(--clr-accent-dark);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            transform: translateY(-50%) rotate(var(--direction));
+            transform-origin: bottom center;
+        }
     }
 
     .info {

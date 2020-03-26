@@ -4,6 +4,7 @@
 }
 
 :root {
+  font-size: 10px;
   --fw-light: 300;
   --fw-normal: 400;
   --fw-semi: 500;
@@ -27,7 +28,6 @@ body {
   height: 100vh;
   overflow: hidden;
   color: var(--clr-light);
-  font-size: 10px;
 }
 
 .section-title {
@@ -86,6 +86,47 @@ a:hover {
   -ms-grid-column: 3;
   -ms-grid-column-span: 1;
   grid-column: 3 / 4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mars-current-weather .wind__direction {
+  --size: 6rem;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mars-current-weather .wind__title_and_reading {
+  padding-left: 1rem;
+}
+
+.mars-current-weather .wind__arrow {
+  --size: 1rem;
+  --direction: 45deg;
+  height: calc(var(--size) * 3);
+  width: var(--size);
+  background-color: var(--clr-accent-dark);
+  -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+          clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  -webkit-transform: translateY(-50%) rotate(var(--direction));
+          transform: translateY(-50%) rotate(var(--direction));
+  -webkit-transform-origin: bottom center;
+          transform-origin: bottom center;
 }
 
 .mars-current-weather .info {
