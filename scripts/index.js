@@ -67,3 +67,11 @@ function getWeather() {
             });
     });
 }
+
+function updateUnits() {
+    const metric = isMetric();
+}
+
+function isMetric() {
+    return metricRadio.checked;
+}
