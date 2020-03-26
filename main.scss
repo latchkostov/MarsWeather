@@ -81,6 +81,8 @@ a {
         border-left: var(--border);
         border-right: var(--border);
         padding: 0 2em;
+        display: flex;
+        justify-content: center;
     }
 
     .wind {
