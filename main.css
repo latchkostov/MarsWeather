@@ -115,6 +115,7 @@ a:hover {
       -ms-flex-direction: column;
           flex-direction: column;
   text-align: center;
+  width: 180px;
 }
 
 .mars-current-weather .date__day {
@@ -205,6 +206,10 @@ a:hover {
           transform: translateY(-50%) rotate(var(--direction));
   -webkit-transform-origin: bottom center;
           transform-origin: bottom center;
+  -webkit-transition: -webkit-transform 350ms ease-in;
+  transition: -webkit-transform 350ms ease-in;
+  transition: transform 350ms ease-in;
+  transition: transform 350ms ease-in, -webkit-transform 350ms ease-in;
 }
 
 .mars-current-weather .info {
@@ -287,8 +292,8 @@ a:hover {
       align-self: center;
   justify-self: flex-end;
   width: 100%;
-  -webkit-transform: translateY(calc(78% - 2rem));
-          transform: translateY(calc(78% - 2rem));
+  -webkit-transform: translateY(calc(78% - 3rem));
+          transform: translateY(calc(78% - 3rem));
   -webkit-transition: -webkit-transform 350ms ease;
   transition: -webkit-transform 350ms ease;
   transition: transform 350ms ease;
@@ -296,7 +301,11 @@ a:hover {
   padding: 1rem 2rem 2rem 2rem;
 }
 
-.show-previous-weather {
+.previous-weather .main-title-previous-days {
+  text-align: center;
+}
+
+.previous-weather .show-previous-weather {
   background-color: var(--clr-light);
   position: absolute;
   left: 50%;
@@ -314,7 +323,7 @@ a:hover {
   border: 0;
 }
 
-.show-previous-weather .show-previous-weather--arrow {
+.previous-weather .show-previous-weather .show-previous-weather--arrow {
   -webkit-transform: rotate(0) translateY(-6px);
           transform: rotate(0) translateY(-6px);
   -webkit-transition: -webkit-transform 250ms ease;
@@ -323,67 +332,67 @@ a:hover {
   transition: transform 250ms ease, -webkit-transform 250ms ease;
 }
 
-.show-previous-weather:hover, .show-previous-weather:focus {
+.previous-weather .show-previous-weather:hover, .previous-weather .show-previous-weather:focus {
   color: var(--clr-dark);
 }
 
-.show-weather.previous-weather {
+.previous-weather.show-weather {
   -webkit-transform: translatey(0);
           transform: translatey(0);
 }
 
-.show-weather.previous-weather .show-previous-weather--arrow {
+.previous-weather.show-weather .show-previous-weather--arrow {
   display: block;
   -webkit-transform: rotate(180deg) translateY(-6px);
           transform: rotate(180deg) translateY(-6px);
 }
 
-.show-weather.previous-weather .main-title-previous-days,
-.show-weather.previous-weather .previous-day {
+.previous-weather.show-weather .main-title-previous-days,
+.previous-weather.show-weather .previous-day {
   -webkit-animation: slideUpIn 750ms forwards;
           animation: slideUpIn 750ms forwards;
 }
 
-.show-weather.previous-weather .main-title-previous-days {
+.previous-weather.show-weather .main-title-previous-days {
   text-align: left;
 }
 
-.show-weather.previous-weather .previous-day:nth-child(1) {
+.previous-weather.show-weather .previous-day:nth-child(1) {
   -webkit-animation-delay: 100ms;
           animation-delay: 100ms;
 }
 
-.show-weather.previous-weather .previous-day:nth-child(2) {
+.previous-weather.show-weather .previous-day:nth-child(2) {
   -webkit-animation-delay: 150ms;
           animation-delay: 150ms;
 }
 
-.show-weather.previous-weather .previous-day:nth-child(3) {
+.previous-weather.show-weather .previous-day:nth-child(3) {
   -webkit-animation-delay: 200ms;
           animation-delay: 200ms;
 }
 
-.show-weather.previous-weather .previous-day:nth-child(4) {
+.previous-weather.show-weather .previous-day:nth-child(4) {
   -webkit-animation-delay: 250ms;
           animation-delay: 250ms;
 }
 
-.show-weather.previous-weather .previous-day:nth-child(5) {
+.previous-weather.show-weather .previous-day:nth-child(5) {
   -webkit-animation-delay: 300ms;
           animation-delay: 300ms;
 }
 
-.show-weather.previous-weather .previous-day:nth-child(6) {
+.previous-weather.show-weather .previous-day:nth-child(6) {
   -webkit-animation-delay: 350ms;
           animation-delay: 350ms;
 }
 
-.show-weather.previous-weather .previous-day:nth-child(7) {
+.previous-weather.show-weather .previous-day:nth-child(7) {
   -webkit-animation-delay: 400ms;
           animation-delay: 400ms;
 }
 
-.previous-days {
+.previous-weather .previous-days {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -393,17 +402,17 @@ a:hover {
           justify-content: space-between;
 }
 
-.previous-day {
+.previous-weather .previous-days .previous-day {
   opacity: 0;
   -webkit-transition: opacity 350ms linear;
   transition: opacity 350ms linear;
 }
 
-.previous-day > * {
+.previous-weather .previous-days .previous-day > * {
   margin: 0;
 }
 
-.previous-day__more-info {
+.previous-weather .previous-days .previous-day__more-info {
   border: 0;
   border-radius: 100vmax;
   background-color: var(--clr-dark);
@@ -414,12 +423,8 @@ a:hover {
   cursor: pointer;
 }
 
-.previous-day__more-info:hover {
+.previous-weather .previous-days .previous-day__more-info:hover {
   background-color: var(--clr-gray);
-}
-
-.main-title-previous-days {
-  text-align: center;
 }
 
 .sr-only:not(:focus):not(:active) {

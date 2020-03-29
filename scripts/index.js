@@ -17,11 +17,15 @@ const speedUnits = document.querySelectorAll('[data-speed-unit]');
 const previousWeather = document.querySelector('.previous-weather');
 const showPreviousWeatherButton = document.querySelector('.show-previous-weather');
 
+const previousSolTemplate = document.querySelector('[data-previous-sol-template]')
+const previousSolContainer = document.querySelector('[data-previous-sols]')
+
 let selectedSolIndex;
 
 getWeather().then(sols => {
     selectedSolIndex = sols.length - 1;
     displaySelectedSol(sols);
+    displayPreviousSols(sols);
     updateUnits(metricUnitRadio.checked);
 
     toggleUnitsButton.addEventListener('click', () => {
@@ -41,12 +45,16 @@ getWeather().then(sols => {
 
     showPreviousWeatherButton.addEventListener('click', ()=> {
         previousWeather.classList.toggle('show-weather');
+        if (previousWeather.classList.contains('show-weather')) {
+            displayPreviousSols(sols);
+        }
     });
 });
 
 function unitChangeHandler(sols) {
     displaySelectedSol(sols);
     updateUnits(metricUnitRadio.checked);
+    displayPreviousSols(sols);
 }
 
 function displaySelectedSol(sols) {
@@ -67,6 +75,28 @@ function displayDate(date) {
         undefined,
         { day: 'numeric', month: 'long'}
     );
+}
+
+function displayPreviousSols(sols) {
+    previousSolContainer.innerHTML = '';
+    const isMetric = metricUnitRadio.checked;
+
+    sols.forEach((solData, index) => {
+        const container = previousSolTemplate.content.cloneNode(true);
+        container.querySelector('[data-sol').innerText = solData.sol;
+        container.querySelector('[data-date').innerText = displayDate(solData.date);
+        container.querySelector('[data-temp-high]').innerText = displayTemperature(solData.maxTemp);
+        container.querySelector('[data-temp-low]').innerText = displayTemperature(solData.minTemp);
+        const allTempUnits = container.querySelectorAll('[data-temp-unit]');
+        allTempUnits.forEach(tempUnit => {
+            updateTempUnits(isMetric, tempUnit);
+        });
+        container.querySelector('[data-select-button]').addEventListener('click', () => {
+            selectedSolIndex = index;
+            displaySelectedSol(sols);
+        })
+        previousSolContainer.appendChild(container);
+    })
 }
 
 function displayTemperature(temperature) {
@@ -109,6 +139,10 @@ function updateUnits(isMetric) {
     }
     
     for (tempUnit of temperatureUnits) {
-        tempUnit.innerText = isMetric ? 'C' : 'F';
+        updateTempUnits(isMetric, tempUnit);
     }
+}
+
+function updateTempUnits(isMetric, element) {
+    element.innerText = isMetric ? 'C' : 'F';
 }
