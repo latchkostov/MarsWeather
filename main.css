@@ -392,6 +392,11 @@ a:hover {
           animation-delay: 400ms;
 }
 
+.previous-weather .lastDaysContainer {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 .previous-weather .previous-days {
   display: -webkit-box;
   display: -ms-flexbox;
