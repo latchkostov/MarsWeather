@@ -14,6 +14,8 @@ const metricUnitRadio = document.getElementById('cel');
 const imperialUnitRadio = document.getElementById('fah');
 const temperatureUnits = document.querySelectorAll('[data-temp-unit]');
 const speedUnits = document.querySelectorAll('[data-speed-unit]');
+const previousWeather = document.querySelector('.previous-weather');
+const showPreviousWeatherButton = document.querySelector('.show-previous-weather');
 
 let selectedSolIndex;
 
@@ -35,6 +37,10 @@ getWeather().then(sols => {
 
     imperialUnitRadio.addEventListener('change', () => {
         unitChangeHandler(sols);
+    });
+
+    showPreviousWeatherButton.addEventListener('click', ()=> {
+        previousWeather.classList.toggle('show-weather');
     });
 });
 

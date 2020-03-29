@@ -14,6 +14,7 @@
     --fs-xl: 4.5rem;
     --clr-light: #fff;
     --clr-gray: #989898;
+    --clr-dark: #444;
     --clr-accent: #D06D6D;
     --clr-accent-dark: #613131;
 }
@@ -39,6 +40,30 @@ body {
     width: 1px;
 }
 
+h1, h2, h3 { line-height: 1; }
+a {
+    color: var(--clr-accent);
+    &:hover {
+        color: var(--clr-accent-dark);
+    }
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.main-title {
+    font-size: var(--fs-h1);
+    font-weight: var(--fw-light);
+    text-transform: uppercase;
+    color: var(--clr-accent);
+    letter-spacing: 2px;
+    grid-column: 1 / -1;
+}
+
 .section-title {
     font-weight: var(--fw-bold);
     font-size: var(--fs-h2);
@@ -47,14 +72,6 @@ body {
 
     &--date {
         font-size: var(--fs-xl);
-    }
-}
-
-h1, h2, h3 { line-height: 1; }
-a {
-    color: var(--clr-accent);
-    &:hover {
-        color: var(--clr-accent-dark);
     }
 }
 
@@ -72,15 +89,6 @@ a {
         height: 100%;
         width: 1px;
         background-color: var(--clr-accent-dark);
-    }
-
-    .main-title {
-        font-size: var(--fs-h1);
-        font-weight: var(--fw-light);
-        text-transform: uppercase;
-        color: var(--clr-accent);
-        letter-spacing: 2px;
-        grid-column: 1 / -1;
     }
 
     .date {
@@ -206,6 +214,129 @@ a {
     color: var(--clr-gray);
 }
 
+.previous-weather {
+    background-color: var(--clr-light);
+    color: var(--clr-gray);
+    align-self: center;
+    justify-self: flex-end;
+    width: 100%;
+    transform: translateY(calc(78% - 2rem));
+    transition: transform 350ms ease;
+    padding: 1rem 2rem 2rem 2rem;
+}
+
+.show-previous-weather {
+    background-color: var(--clr-light);
+    position: absolute;
+    left: 50%;
+    width: 10rem;
+    transform: translate(-50%, calc(-95% - 1rem));
+    text-align: center;
+    font-family: inherit;
+    font-size: var(--fs-h2);
+    color: var(--clr-gray);
+    line-height: 1;
+    clip-path: polygon(50% 0, 0 100%, 100% 100%);
+    cursor: pointer;
+    border: 0;
+
+    .show-previous-weather--arrow {
+        transform: rotate(0) translateY(-6px);
+        transition: transform 250ms ease;
+    }
+
+    &:hover,
+    &:focus {
+        color: var(--clr-dark);
+    }
+}
+
+.show-weather.previous-weather {
+    transform: translatey(0);
+
+    .show-previous-weather--arrow {
+        display: block;
+        transform: rotate(180deg) translateY(-6px);
+    }
+
+    .main-title-previous-days,
+    .previous-day {
+        animation: slideUpIn 750ms forwards;
+    }
+
+    .main-title-previous-days {
+        text-align: left;
+    }
+
+    .previous-day:nth-child(1) {
+        animation-delay: 100ms;
+    }
+    .previous-day:nth-child(2) {
+        animation-delay: 150ms;
+    }
+    .previous-day:nth-child(3) {
+        animation-delay: 200ms;
+    }
+    .previous-day:nth-child(4) {
+        animation-delay: 250ms;
+    }
+    .previous-day:nth-child(5) {
+        animation-delay: 300ms;
+    }
+    .previous-day:nth-child(6) {
+        animation-delay: 350ms;
+    }
+    .previous-day:nth-child(7) {
+        animation-delay: 400ms;
+    }
+}
+
+.previous-days {
+    display: flex;
+    color: var(--clr-dark);
+    justify-content: space-between;
+}
+
+.previous-day {
+    opacity: 0;
+    transition: opacity 350ms linear;
+
+    & > * {
+        margin: 0;
+    }
+
+    &__more-info {
+        border: 0;
+        border-radius: 100vmax;
+        background-color: var(--clr-dark);
+        color: var(--clr-light);
+        text-transform: uppercase;
+        padding: .3em 1em;
+        margin-top: 1rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--clr-gray);
+        }
+    }
+}
+
+.main-title-previous-days {
+    text-align: center;
+}
+
 .sr-only:not(:focus):not(:active) {
     @include screenreader;
+}
+
+@keyframes slideUpIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

@@ -15,6 +15,7 @@
   --fs-xl: 4.5rem;
   --clr-light: #fff;
   --clr-gray: #989898;
+  --clr-dark: #444;
   --clr-accent: #D06D6D;
   --clr-accent-dark: #613131;
 }
@@ -30,6 +31,41 @@ body {
   color: var(--clr-light);
 }
 
+h1, h2, h3 {
+  line-height: 1;
+}
+
+a {
+  color: var(--clr-accent);
+}
+
+a:hover {
+  color: var(--clr-accent-dark);
+}
+
+.page-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100vh;
+}
+
+.main-title {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-light);
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  letter-spacing: 2px;
+  grid-column: 1 / -1;
+}
+
 .section-title {
   font-weight: var(--fw-bold);
   font-size: var(--fs-h2);
@@ -41,18 +77,6 @@ body {
 
 .section-title--date {
   font-size: var(--fs-xl);
-}
-
-h1, h2, h3 {
-  line-height: 1;
-}
-
-a {
-  color: var(--clr-accent);
-}
-
-a:hover {
-  color: var(--clr-accent-dark);
 }
 
 .mars-current-weather {
@@ -77,15 +101,6 @@ a:hover {
   height: 100%;
   width: 1px;
   background-color: var(--clr-accent-dark);
-}
-
-.mars-current-weather .main-title {
-  font-size: var(--fs-h1);
-  font-weight: var(--fw-light);
-  text-transform: uppercase;
-  color: var(--clr-accent);
-  letter-spacing: 2px;
-  grid-column: 1 / -1;
 }
 
 .mars-current-weather .date {
@@ -264,6 +279,149 @@ a:hover {
   color: var(--clr-gray);
 }
 
+.previous-weather {
+  background-color: var(--clr-light);
+  color: var(--clr-gray);
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  justify-self: flex-end;
+  width: 100%;
+  -webkit-transform: translateY(calc(78% - 2rem));
+          transform: translateY(calc(78% - 2rem));
+  -webkit-transition: -webkit-transform 350ms ease;
+  transition: -webkit-transform 350ms ease;
+  transition: transform 350ms ease;
+  transition: transform 350ms ease, -webkit-transform 350ms ease;
+  padding: 1rem 2rem 2rem 2rem;
+}
+
+.show-previous-weather {
+  background-color: var(--clr-light);
+  position: absolute;
+  left: 50%;
+  width: 10rem;
+  -webkit-transform: translate(-50%, calc(-95% - 1rem));
+          transform: translate(-50%, calc(-95% - 1rem));
+  text-align: center;
+  font-family: inherit;
+  font-size: var(--fs-h2);
+  color: var(--clr-gray);
+  line-height: 1;
+  -webkit-clip-path: polygon(50% 0, 0 100%, 100% 100%);
+          clip-path: polygon(50% 0, 0 100%, 100% 100%);
+  cursor: pointer;
+  border: 0;
+}
+
+.show-previous-weather .show-previous-weather--arrow {
+  -webkit-transform: rotate(0) translateY(-6px);
+          transform: rotate(0) translateY(-6px);
+  -webkit-transition: -webkit-transform 250ms ease;
+  transition: -webkit-transform 250ms ease;
+  transition: transform 250ms ease;
+  transition: transform 250ms ease, -webkit-transform 250ms ease;
+}
+
+.show-previous-weather:hover, .show-previous-weather:focus {
+  color: var(--clr-dark);
+}
+
+.show-weather.previous-weather {
+  -webkit-transform: translatey(0);
+          transform: translatey(0);
+}
+
+.show-weather.previous-weather .show-previous-weather--arrow {
+  display: block;
+  -webkit-transform: rotate(180deg) translateY(-6px);
+          transform: rotate(180deg) translateY(-6px);
+}
+
+.show-weather.previous-weather .main-title-previous-days,
+.show-weather.previous-weather .previous-day {
+  -webkit-animation: slideUpIn 750ms forwards;
+          animation: slideUpIn 750ms forwards;
+}
+
+.show-weather.previous-weather .main-title-previous-days {
+  text-align: left;
+}
+
+.show-weather.previous-weather .previous-day:nth-child(1) {
+  -webkit-animation-delay: 100ms;
+          animation-delay: 100ms;
+}
+
+.show-weather.previous-weather .previous-day:nth-child(2) {
+  -webkit-animation-delay: 150ms;
+          animation-delay: 150ms;
+}
+
+.show-weather.previous-weather .previous-day:nth-child(3) {
+  -webkit-animation-delay: 200ms;
+          animation-delay: 200ms;
+}
+
+.show-weather.previous-weather .previous-day:nth-child(4) {
+  -webkit-animation-delay: 250ms;
+          animation-delay: 250ms;
+}
+
+.show-weather.previous-weather .previous-day:nth-child(5) {
+  -webkit-animation-delay: 300ms;
+          animation-delay: 300ms;
+}
+
+.show-weather.previous-weather .previous-day:nth-child(6) {
+  -webkit-animation-delay: 350ms;
+          animation-delay: 350ms;
+}
+
+.show-weather.previous-weather .previous-day:nth-child(7) {
+  -webkit-animation-delay: 400ms;
+          animation-delay: 400ms;
+}
+
+.previous-days {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: var(--clr-dark);
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.previous-day {
+  opacity: 0;
+  -webkit-transition: opacity 350ms linear;
+  transition: opacity 350ms linear;
+}
+
+.previous-day > * {
+  margin: 0;
+}
+
+.previous-day__more-info {
+  border: 0;
+  border-radius: 100vmax;
+  background-color: var(--clr-dark);
+  color: var(--clr-light);
+  text-transform: uppercase;
+  padding: .3em 1em;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.previous-day__more-info:hover {
+  background-color: var(--clr-gray);
+}
+
+.main-title-previous-days {
+  text-align: center;
+}
+
 .sr-only:not(:focus):not(:active) {
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
@@ -273,5 +431,31 @@ a:hover {
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+@-webkit-keyframes slideUpIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50%);
+            transform: translateY(50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes slideUpIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50%);
+            transform: translateY(50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
 }
 /*# sourceMappingURL=main.css.map */
