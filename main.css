@@ -397,7 +397,7 @@ a:hover {
   margin: 0 auto;
 }
 
-.previous-weather .previous-days {
+.previous-weather .lastDaysContainer .previous-days {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -407,17 +407,17 @@ a:hover {
           justify-content: space-between;
 }
 
-.previous-weather .previous-days .previous-day {
+.previous-weather .lastDaysContainer .previous-days .previous-day {
   opacity: 0;
   -webkit-transition: opacity 350ms linear;
   transition: opacity 350ms linear;
 }
 
-.previous-weather .previous-days .previous-day > * {
+.previous-weather .lastDaysContainer .previous-days .previous-day > * {
   margin: 0;
 }
 
-.previous-weather .previous-days .previous-day__more-info {
+.previous-weather .lastDaysContainer .previous-days .previous-day__more-info {
   border: 0;
   border-radius: 100vmax;
   background-color: var(--clr-dark);
@@ -428,7 +428,7 @@ a:hover {
   cursor: pointer;
 }
 
-.previous-weather .previous-days .previous-day__more-info:hover {
+.previous-weather .lastDaysContainer .previous-days .previous-day__more-info:hover {
   background-color: var(--clr-gray);
 }
 
